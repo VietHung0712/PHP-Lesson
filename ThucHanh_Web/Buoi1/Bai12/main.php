@@ -4,37 +4,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $var = $_POST['var'];
 
-    switch ($var) {
-        case 0:
-            $kq = "Không";
-            break;
-        case 1:
-            $kq = "Một";
-            break;
-        case 2:
-            $kq = "Hai";
-            break;
-        case 3:
-            $kq = "Ba";
-            break;
-        case 4:
-            $kq = "Bốn";
-            break;
-        case 5:
-            $kq = "Năm";
-            break;
-        case 6:
-            $kq = "Sáu";
-            break;
-        case 7:
-            $kq = "Bảy";
-            break;
-        case 8:
-            $kq = "Tám";
-            break;
-        case 9:
-            $kq = "Chín";
-            break;
+    if (is_numeric($var)) {
+        switch ($var) {
+            case 0:
+                $kq = "Không";
+                break;
+            case 1:
+                $kq = "Một";
+                break;
+            case 2:
+                $kq = "Hai";
+                break;
+            case 3:
+                $kq = "Ba";
+                break;
+            case 4:
+                $kq = "Bốn";
+                break;
+            case 5:
+                $kq = "Năm";
+                break;
+            case 6:
+                $kq = "Sáu";
+                break;
+            case 7:
+                $kq = "Bảy";
+                break;
+            case 8:
+                $kq = "Tám";
+                break;
+            case 9:
+                $kq = "Chín";
+                break;
+        }
+    } else{
+        echo "<script>alert('Is not number!')</script>";
     }
 }
 ?>
@@ -85,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tr>
                 <th>Nhập số(0->9)</th>
                 <td>
-                    <input type="number" value="<?php echo $var;  ?>" name="var">
+                    <input type="text" value="<?php echo $var;  ?>" name="var" required>
                 </td>
             </tr>
             <tr>
